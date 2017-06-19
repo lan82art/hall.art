@@ -25,6 +25,6 @@ class View
 		внутри которого будет встраиваться вид
 		для отображения контента конкретной страницы.
 		*/
-		require_once 'application/views/'.$template_view;
+		require_once './application/views/'.$template_view;
 	}
 }
