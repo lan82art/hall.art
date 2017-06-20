@@ -28,24 +28,23 @@ class Route
         $model_name = 'Model_'.$controller_name;
         $controller_name = 'Controller_'.$controller_name;
         $action_name = 'action_'.$action_name;
-        /*
         echo "Model: $model_name <br>";
         echo "Controller: $controller_name <br>";
         echo "Action: $action_name <br>";
-        */
+
         // подцепляем файл с классом модели (файла модели может и не быть)
         $model_file = strtolower($model_name).'.php';
-        $model_path = "application/models/".$model_file;
+        $model_path = 'application/models/'.$model_file;
         if(file_exists($model_path))
         {
-            include "application/models/".$model_file;
+            include 'application/models/'.$model_file;
         }
         // подцепляем файл с классом контроллера
         $controller_file = strtolower($controller_name).'.php';
-        $controller_path = "application/controllers/".$controller_file;
+        $controller_path = 'application/controllers/'.$controller_file;
         if(file_exists($controller_path))
         {
-            include "application/controllers/".$controller_file;
+            include 'application/controllers/'.$controller_file;
         }
         else
         {
@@ -57,6 +56,12 @@ class Route
         }
 
         // создаем контроллер
+        /*
+        echo 'controller_file : '.$controller_file.'<br />';
+        echo 'controller_name : '.$controller_name.'<br />';
+        echo 'controller_path : '.$controller_path.'<br />';
+        */
+
         $controller = new $controller_name;
         $action = $action_name;
 
@@ -68,7 +73,8 @@ class Route
         else
         {
             // здесь также разумнее было бы кинуть исключение
-            Route::ErrorPage404();
+
+           Route::ErrorPage404();
         }
 
     }
