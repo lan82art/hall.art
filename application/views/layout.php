@@ -42,11 +42,11 @@
     </div>
     <div class="container" style="padding: 70px 15px;">
         <div class="row">
-            <div class="col-xs-2"></div>
-            <div class="col-xs-8">
+            <div class="col-xs-1"></div>
+            <div class="col-xs-10">
                 <?php require_once 'application/views/'.$content; ?>
             </div>
-            <div class="col-xs-2"></div>
+            <div class="col-xs-1"></div>
         </div>
     </div>
 </div>
