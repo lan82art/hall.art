@@ -70,9 +70,10 @@ class Controller_User extends Controller
                     $this->userForm = array('name' => $_POST['name'], 'password' => sha1($_POST['pass']), 'email' => $_POST['email']);
                     $this->model->newUser($this->userForm);
                     $this->view->generate('register_success.php', 'layout2.php');
-                }
-            }
-        }
+
+                } else {$this->view->generate('reg_form.php', 'layout2.php');}
+            } else {$this->view->generate('reg_form.php', 'layout2.php');}
+        } else {$this->view->generate('reg_form.php', 'layout2.php');}
     }
 }
 
