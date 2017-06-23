@@ -4,6 +4,8 @@ class Controller {
 	
 	public $model;
 	public $view;
+	public $sidebar;
+	public $charset = 'utf8';
 	
 	function __construct()
 	{

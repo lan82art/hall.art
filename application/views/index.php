@@ -4,7 +4,7 @@
         for ($i=1; $i<=4; $i++) {
             for ($j = 1; $j <= 12; $j++) { ?>
                 <button type="button" class="btn btn-info"><?= $j ?></button>
-            <?php }
+            <?php }  ?> <br /> <?php
         }
         ?>
     </div>
@@ -13,7 +13,7 @@
         for ($i=1; $i<=4; $i++) {
             for ($j = 1; $j <= 12; $j++) { ?>
                 <button type="button" class="btn btn-warning"><?= $j ?></button>
-            <?php }
+            <?php }  ?> <br /> <?php
         }
         ?>
     </div>
@@ -25,7 +25,7 @@
         for ($i=1; $i<=5; $i++) {
             for ($j = 1; $j <= 12; $j++) { ?>
                 <button type="button" class="btn btn-success"><?= $j ?></button>
-            <?php }
+            <?php }  ?> <br /> <?php
         }
         ?>
     </div>
@@ -34,7 +34,7 @@
         for ($i=1; $i<=5; $i++) {
             for ($j = 1; $j <= 12; $j++) { ?>
                 <button type="button" class="btn btn-primary"><?= $j ?></button>
-            <?php }
+            <?php }  ?> <br /> <?php
         }
         ?>
     </div>
@@ -43,7 +43,7 @@
         for ($i=1; $i<=5; $i++) {
             for ($j = 1; $j <= 12; $j++) { ?>
                 <button type="button" class="btn btn-danger"><?= $j ?></button>
-            <?php }
+            <?php }  ?> <br /> <?php
         }
         ?>
     </div>
@@ -54,7 +54,7 @@
         for ($i=1; $i<=4; $i++) {
             for ($j = 1; $j <= 12; $j++) { ?>
                 <button type="button" class="btn btn-info"><?= $j ?></button>
-            <?php }
+            <?php }  ?> <br /> <?php
         }
         ?>
     </div>
@@ -63,7 +63,7 @@
         for ($i=1; $i<=4; $i++) {
             for ($j = 1; $j <= 12; $j++) { ?>
                 <button type="button" class="btn btn-warning"><?= $j ?></button>
-            <?php }
+            <?php } ?> <br /> <?php
         }
         ?>
     </div>
