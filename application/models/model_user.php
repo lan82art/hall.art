@@ -21,11 +21,11 @@ class Model_User extends Model {
     }
 
     function getAuth($user,$password){
-        //$password = sha1($password);
+        $password = sha1($password);
         $sql = "SELECT * FROM user WHERE name = '".$user."' AND password = '".$password."'";
 
         if($result = $this ->select($sql)){
-            return $result['id'];
+            return array('id' => $result['id'], 'name' => $result['name']);
         }
         return false;
     }

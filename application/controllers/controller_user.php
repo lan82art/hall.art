@@ -1,7 +1,11 @@
 <?php
+require_once 'controller_index.php';
 class Controller_User extends Controller
 {
     public $userForm = array();
+    public $error = array();
+    public $name;
+    public $email;
 
     function __construct()
     {
@@ -14,6 +18,7 @@ class Controller_User extends Controller
             $type = 'validate_'.$type;
             return $this->$type($value);
         }
+        return false;
     }
 
     protected function validate_name($value){
@@ -54,26 +59,69 @@ class Controller_User extends Controller
 
     function action_login()
     {
-        $this->view->generate('login.php', 'layout2.php');
+        unset($_SESSION['auth']);
+        $arr = $this->model->getAuth($_POST['login'],$_POST['password']);
+        $_SESSION['auth'] = $arr['id'];
+
+        if(is_numeric($_SESSION['auth'])){
+            $_SESSION['name'] = $arr['name'];
+
+            $controller = new Controller_Index();
+            $controller->action_index();
+        } else {
+            $controller = new Controller_User();
+            $controller->action_loginForm('Login and/or password incorrect');
+        }
+    }
+    function action_logout(){
+        unset($_SESSION['auth']);
+        unset($_SESSION['name']);
+
+        $controller = new Controller_Index();
+        $controller->action_index();
     }
 
-    function action_register()
+    function action_loginForm($data = null)
+    {
+        $this->view->generate('login.php', 'layout2.php',$data);
+    }
+
+    function action_registerForm()
     {
         $this->view->generate('reg_form.php', 'layout2.php');
     }
 
     function action_apply_register(){
 
-        if($this->validate('email',$_POST['email'])){
-            if(!$this->model->getUserEmail($_POST['email'])){
-                if($this->validate('name',$_POST['name']) && $this->validate('pass',$_POST['pass']) && $_POST['pass'] == $_POST['pass2']){
-                    $this->userForm = array('name' => $_POST['name'], 'password' => sha1($_POST['pass']), 'email' => $_POST['email']);
-                    $this->model->newUser($this->userForm);
-                    $this->view->generate('register_success.php', 'layout2.php');
+        $this->name = $_POST['name'];
+        $this->email = $_POST['email'];
 
-                } else {$this->view->generate('reg_form.php', 'layout2.php');}
-            } else {$this->view->generate('reg_form.php', 'layout2.php');}
-        } else {$this->view->generate('reg_form.php', 'layout2.php');}
+        if(!$this->validate('name',$this->name)) {
+            $this->error['name'] = 'Invalid name';
+        }
+        if ($this->model->getUserEmail($this->email)){
+            $this->error['email'] = 'Email exists';
+        }
+        if (!$this->validate('email',$this->email)){
+            $this->error['email'] = 'Email is not valid';
+        }
+        if (!$this->validate('pass',$_POST['pass'])){
+            $this->error['pass'] = 'Invalid password';
+        }
+        if ($_POST['pass'] != $_POST['pass2']){
+            $this->error['pass'] = 'Password mismatch';
+        }
+
+        if (empty($this->error)){
+            $this->userForm = array('name' => $_POST['name'], 'password' => sha1($_POST['pass']), 'email' => $_POST['email']);
+            $this->model->newUser($this->userForm);
+
+            $this->view->generate('register_success.php', 'layout2.php');
+        } else {
+            $res = array('name' => $this->name, 'email' => $this->email);
+            $data = array('err' => $this->error,'form' => $res,'form');
+            $this->view->generate('reg_form.php','layout2.php',$data);
+        }
     }
 }
 

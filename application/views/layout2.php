@@ -3,7 +3,7 @@
 <head>
     <title>Hall of fame :)</title>
     <meta charset="UTF-8">
-    <meta name = "robots" content="index,follow" />
+    <meta name = "robots" content="NOINDEX,NOFOLLOW" />
     <script src="/vendor/components/jquery/jquery.min.js"></script>
     <script src="/vendor/twbs/bootstrap/dist/js/bootstrap.js"></script>
     <link rel="stylesheet" href="/vendor/twbs/bootstrap/dist/css/bootstrap.css">
@@ -33,7 +33,7 @@
                                 </ul>
                             </li>
                         <?php } else {?>
-                            <li><a href="/user/login">Войти</a></li>
+                            <li><a href="/user/loginForm">Войти</a></li>
                         <?php } ?>
                     </ul>
                 </div>

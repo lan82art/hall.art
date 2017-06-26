@@ -21,7 +21,8 @@ class Model
             die("Ошибка запроса: ".mysqli_error($this->connection)) ;
         }
         $array = array();
-        while ($res[] = mysqli_fetch_assoc($result)){
+
+        while ($res = mysqli_fetch_assoc($result)){
             $array = $res;
         }
         return $array ;
