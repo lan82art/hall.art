@@ -1,5 +1,5 @@
 <?php
-require_once 'controller_index.php';
+//require_once 'controller_index.php';
 class Controller_User extends Controller
 {
     public $userForm = array();
@@ -66,8 +66,7 @@ class Controller_User extends Controller
         if(is_numeric($_SESSION['auth'])){
             $_SESSION['name'] = $arr['name'];
 
-            $controller = new Controller_Index();
-            $controller->action_index();
+            header('Location:/');
         } else {
             $controller = new Controller_User();
             $controller->action_loginForm('Login and/or password incorrect');
@@ -77,8 +76,7 @@ class Controller_User extends Controller
         unset($_SESSION['auth']);
         unset($_SESSION['name']);
 
-        $controller = new Controller_Index();
-        $controller->action_index();
+        header('Location:/');
     }
 
     function action_loginForm($data = null)

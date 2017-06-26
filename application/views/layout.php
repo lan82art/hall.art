@@ -28,10 +28,12 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?=$_SESSION['name']?><span class="caret"></span></a>
                                 <ul class="dropdown-menu">
+                                    <li><a href="#">Заказы</a></li>
                                     <li><a href="#">Редактировать профиль</a></li>
                                     <li><a href="/user/logout">Выход</a></li>
                                 </ul>
                             </li>
+                            <li class="glyphicon glyphicon-shopping-cart"></li>
                         <?php } else {?>
                             <li><a href="/user/loginForm">Войти</a></li>
                         <?php } ?>
