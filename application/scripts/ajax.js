@@ -5,10 +5,10 @@ jQuery(document).ready(function () {
         jQuery.ajax({
             url: 'index.php/tickets/addtocart/',
             type: 'POST',
-            data: (this).#id,
+          /*  data: (this).#id,
             dataType: 'html',
             beforeSend: funcBefore,
-            success: funcSuccess
+            success: funcSuccess*/
         });
     });
 });
