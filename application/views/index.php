@@ -8,7 +8,7 @@
             <?php
             for ($j = 1; $j <= 10; $j++) {
                 if ($i != 1 )?>
-                <span class="place" id="<?=$i ?>-<?= $j?>"><?= $j ?></span>
+                <span class="place" id="a-<?=$i ?>-<?= $j?>"><?= $j ?></span>
                     <?php }  ?> <div class="clear"></div> <?php
         }
         ?>

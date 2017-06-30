@@ -34,7 +34,7 @@
                                     <li><a href="/user/logout">Выход</a></li>
                                 </ul>
                             </li>
-                            <li class="glyphicon glyphicon-shopping-cart"></li>
+                            <!--<li class="glyphicon glyphicon-shopping-cart"></li>-->
                         <?php } else {?>
                             <li><a href="/user/loginForm">Войти</a></li>
                         <?php } ?>
@@ -59,7 +59,7 @@
                 <?php require_once 'application/views/'.$content;?>
             </div>
             <div class="col-xs-2">
-                <div id="order"></div>
+                <div id="order" class="order"></div>
             </div>
             <div class="col-xs-1"></div>
         </div>

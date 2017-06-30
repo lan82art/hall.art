@@ -75,6 +75,7 @@ class Controller_User extends Controller
     function action_logout(){
         unset($_SESSION['auth']);
         unset($_SESSION['name']);
+        unset($_SESSION['cart']);
 
         header('Location:/');
     }
