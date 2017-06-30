@@ -6,12 +6,32 @@ body {
     float: left;
     width: 33%;
     padding: 2px;
+
 }
 .places_in{
     border: solid 1px #990099;
     margin: 3px 0;
     text-align: center;
-    padding: 10px 0 ;
+    padding: 10px
+;
+}
+.place{
+    background:#00AA88;
+    float: left;
+    margin: 0 0 3px 5px;
+    padding: 6px;
+    width: 20px;
+    height: 25px;
+    font-size: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+}
+
+.order{
+    border: solid 1px #990099;
+    padding: 20px 0;
+    text-align: center;
 }
 .wrap {
     min-height: 100%;

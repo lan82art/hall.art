@@ -1,14 +1,20 @@
 jQuery(document).ready(function () {
-    jQuery('#').bind('click',function () {
-        var name = 'user';
-        var pass = '1234';
+    jQuery('.place').bind('click',function () {
+        var plases;
+        jQuery(this).css({'font-weight':'bolder','background':'red'});
+        plases = [jQuery(this).attr('id')];
+
+
         jQuery.ajax({
-            url: 'index.php/tickets/addtocart/',
+            url: '/tickets/addToCart',
             type: 'POST',
-          /*  data: (this).#id,
+            data: 'id='+jQuery(this).attr('id'),
             dataType: 'html',
-            beforeSend: funcBefore,
-            success: funcSuccess*/
+            success: function (data) {
+                jQuery('#order').html('<div class="order">'+data+'</div>');
+            }
         });
+        return false;
     });
+
 });
