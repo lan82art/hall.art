@@ -1,6 +1,3 @@
-<?php
-require_once 'application/controllers/controller_tickets.php';
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,25 +45,23 @@ require_once 'application/controllers/controller_tickets.php';
     </div>
     <div class="container-fluid" style="padding: 70px 15px;">
         <div class="row">
-            <!--<div class="col-xs-1"></div>-->
-            <div class="col-xs-1" style="border: solid 1px #990099; padding: 20px 0; text-align: center;">
+            <div class="col-xs-1">
+
+            </div>
+            <div class="col-xs-2" style="border: solid 1px #990099; padding: 20px 0; text-align: center;">
                 <div><button type="button" class="btn btn-danger">100 грн.</button></div>
                 <div><button type="button" class="btn btn-info">200 грн.</button></div>
                 <div><button type="button" class="btn btn-primary">250 грн.</button></div>
                 <div><button type="button" class="btn btn-warning">300 грн.</button></div>
                 <div><button type="button" class="btn btn-success">400 грн.</button></div>
             </div>
-            <div class="col-xs-9">
+            <div class="col-xs-6">
                 <?php require_once 'application/views/'.$content;?>
             </div>
             <div class="col-xs-2">
-                <div id="order" class="order">
-                    <?php
-                        echo Controller_Tickets::drawCart();
-                    ?>
-                </div>
+                <div id="order" class="order"></div>
             </div>
-            <!--<div class="col-xs-1"></div>-->
+            <div class="col-xs-1"></div>
         </div>
     </div>
 </div>
