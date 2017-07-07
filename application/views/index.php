@@ -7,9 +7,13 @@
             <span style="font-size:x-small; float: left; margin: 0 7px 0 7px;"><?= $i;?></span>
             <?php
             for ($j = 1; $j <= 10; $j++) {
-                if ($i != 1 )?>
-                <span class="place" id="a-<?=$i ?>-<?= $j?>"><?= $j ?></span>
-                    <?php }  ?> <div class="clear"></div> <?php
+
+                if ( !empty($_SESSION['cart']) && in_array(['a',$i,$j],$_SESSION['cart'])){?>
+                    <span class="pa" style="background: red;" id="a-<?=$i ?>-<?= $j?>"><?= $j ?></span>
+                    <?php } else {?>
+
+                <span class="pa" id="a-<?=$i ?>-<?= $j?>"><?= $j ?></span> <?php } ?>
+                    <?php }?> <div class="clear"></div> <?php
         }
         ?>
         </div>
@@ -17,20 +21,27 @@
 
 
     <div class="places_in" id="b">
-        <?php
-        for ($i=1; $i<=4; $i++) {?>
-            <span style="font-size:x-small"><?= $i;?></span>&nbsp;&nbsp;
+        <div>
             <?php
-            for ($j = 1; $j <= 10; $j++) { ?>
-                <button type="button" class="btn btn-warning"><?= $j ?></button>
-            <?php }  ?> <br /> <?php
-        }
-        ?>
+            for ($i=1; $i<=4; $i++) {?>
+                <span style="font-size:x-small; float: left; margin: 0 7px 0 7px;"><?= $i;?></span>
+                <?php
+                for ($j = 1; $j <= 10; $j++) {
+
+                    if ( !empty($_SESSION['cart']) && in_array(['b',$i,$j],$_SESSION['cart'])){?>
+                        <span class="pb" style="background: red;" id="b-<?=$i ?>-<?= $j?>"><?= $j ?></span>
+                    <?php } else {?>
+
+                        <span class="pb" id="b-<?=$i ?>-<?= $j?>"><?= $j ?></span> <?php } ?>
+                <?php }?> <div class="clear"></div> <?php
+            }
+            ?>
+        </div>
     </div>
 
 </div>
 <div class="places">
-    <div class="places_in" id="C">
+    <div class="places_in" id="c">
         <?php
         for ($i=1; $i<=5; $i++) {?>
             <span style="font-size:x-small"><?= $i;?></span>&nbsp;&nbsp;

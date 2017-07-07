@@ -15,8 +15,16 @@ body {
     padding: 10px
 ;
 }
-.place{
+.pa{
     background:#00AA88;
+}
+
+.pb{
+    background: #386aaa;
+}
+
+.pa, .pb, .pc, .pd, .pe, .pf, .pg{
+
     float: left;
     margin: 0 0 3px 5px;
     padding: 6px;

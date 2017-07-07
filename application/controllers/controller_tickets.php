@@ -1,10 +1,12 @@
 <?php
 class Controller_Tickets extends Controller{
 
-    function action_addToCart(){
+    function __construct()
+    {
+        $this->view = new View;
+    }
 
-        $arr = array();
-        $newarr = array();
+    function action_addToCart(){
 
         $arr = explode('-',$_POST['id']);
 
@@ -23,10 +25,23 @@ class Controller_Tickets extends Controller{
             }
         } else  $_SESSION['cart'][] = $arr;
 
+        echo Controller_Tickets::drawCart();
+    }
+
+    static function drawCart(){
+        $ret = '';
         if(!empty($_SESSION['cart'])) {
             foreach ($_SESSION['cart'] as $val) {
-                echo $val[0] . '--' . $val[1] .'--'.$val[2].'<br />';
+                $ret.= 'Сектор: '.$val[0] . ' Ряд: ' . $val[1] .' Место: '.$val[2].'<br />';
             }
+            $ret .= '<br /><a href="/tickets/verify"><div><button type="button" class="btn btn-primary">Оформить заказ</button></div>';
+            return $ret;
         }
+    }
+
+    function action_verify(){
+
+        $this->view->generate('cart.php', 'layout2.php');
+
     }
 }

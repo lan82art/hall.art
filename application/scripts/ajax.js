@@ -1,13 +1,18 @@
 jQuery(document).ready(function () {
-    jQuery('.place').bind('click',function () {
+    jQuery('.pa, .pb').bind('click',function () {
 
         jQuery(this).css('font-weight','bolder');
         if(jQuery(this).css('background-color') === 'rgb(255, 0, 0)'){
-            jQuery(this).css({'background':'#00AA88'});
+            if(jQuery(this).attr('class') === 'pa') {
+                jQuery(this).css({'background': '#00AA88'});
+            }
+            else if(jQuery(this).attr('class') === 'pb'){
+                jQuery(this).css({'background': '#386aaa'});
+            }
+
         } else {
             jQuery(this).css({'background':'red'});
         }
-
 
         jQuery.ajax({
             url: '/tickets/addToCart',
@@ -20,5 +25,4 @@ jQuery(document).ready(function () {
         });
         return false;
     });
-
 });
