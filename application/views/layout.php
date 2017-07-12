@@ -1,3 +1,6 @@
+<?php
+    require_once 'application/controllers/controller_tickets.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,7 +62,11 @@
                 <?php require_once 'application/views/'.$content;?>
             </div>
             <div class="col-xs-2">
-                <div id="order" class="order"></div>
+                <div id="order" class="order">
+                    <?php
+                        echo Controller_Tickets::drawCart();
+                    ?>
+                </div>
             </div>
             <div class="col-xs-1"></div>
         </div>
