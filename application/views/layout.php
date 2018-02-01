@@ -1,3 +1,6 @@
+<?php
+    require_once 'application/controllers/controller_tickets.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,6 +9,7 @@
     <meta name = "robots" content="NOINDEX,NOFOLLOW" />
     <script src="/vendor/components/jquery/jquery.min.js"></script>
     <script src="/vendor/twbs/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/application/scripts/ajax.js"></script>
     <link rel="stylesheet" href="/vendor/twbs/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
 </head>
@@ -33,7 +37,7 @@
                                     <li><a href="/user/logout">Выход</a></li>
                                 </ul>
                             </li>
-                            <li class="glyphicon glyphicon-shopping-cart"></li>
+                            <!--<li class="glyphicon glyphicon-shopping-cart"></li>-->
                         <?php } else {?>
                             <li><a href="/user/loginForm">Войти</a></li>
                         <?php } ?>
@@ -42,8 +46,11 @@
             </div>
         </nav>
     </div>
-    <div class="container" style="padding: 70px 15px;">
+    <div class="container-fluid" style="padding: 70px 15px;">
         <div class="row">
+            <div class="col-xs-1">
+
+            </div>
             <div class="col-xs-2" style="border: solid 1px #990099; padding: 20px 0; text-align: center;">
                 <div><button type="button" class="btn btn-danger">100 грн.</button></div>
                 <div><button type="button" class="btn btn-info">200 грн.</button></div>
@@ -51,9 +58,17 @@
                 <div><button type="button" class="btn btn-warning">300 грн.</button></div>
                 <div><button type="button" class="btn btn-success">400 грн.</button></div>
             </div>
-            <div class="col-xs-10">
-                <?php require_once 'application/views/'.$content; ?>
+            <div class="col-xs-6">
+                <?php require_once 'application/views/'.$content;?>
             </div>
+            <div class="col-xs-2">
+                <div id="order" class="order">
+                    <?php
+                        echo Controller_Tickets::drawCart();
+                    ?>
+                </div>
+            </div>
+            <div class="col-xs-1"></div>
         </div>
     </div>
 </div>
@@ -61,7 +76,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-4">
-                <p class="pull-left"><span class="glyphicon glyphicon-copyright-mark"></span> Artem <?php echo date('Y');?></p>
+                <p class="pull-left"><span class="glyphicon glyphicon-copyright-mark"></span>Artem <?php echo date('Y');?></p>
             </div>
         </div>
     </div>

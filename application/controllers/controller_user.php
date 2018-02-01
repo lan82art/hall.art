@@ -75,6 +75,7 @@ class Controller_User extends Controller
     function action_logout(){
         unset($_SESSION['auth']);
         unset($_SESSION['name']);
+        unset($_SESSION['cart']);
 
         header('Location:/');
     }
@@ -113,11 +114,10 @@ class Controller_User extends Controller
         if (empty($this->error)){
             $this->userForm = array('name' => $_POST['name'], 'password' => sha1($_POST['pass']), 'email' => $_POST['email']);
             $this->model->newUser($this->userForm);
-
             $this->view->generate('register_success.php', 'layout2.php');
         } else {
             $res = array('name' => $this->name, 'email' => $this->email);
-            $data = array('err' => $this->error,'form' => $res,'form');
+            $data = array('err' => $this->error,'form' => $res);
             $this->view->generate('reg_form.php','layout2.php',$data);
         }
     }
